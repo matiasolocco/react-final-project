@@ -1,17 +1,40 @@
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import axios from "axios";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import AuthRoute from "./AuthRoute/AuthRoute";
+import Profile from "./Profile";
 
-//todos los componentes comienzan en mayusuclas
+
+
 function App() {
-  //todo lo que quiero que se vea en la web va en el return
+
+  const [user, setUser] = useState(null)
+  const [listUsers, setListUsers] = useState([])
+
+  useEffect(() => {
+    axios.get("https://664865f02bb946cf2fa069a8.mockapi.io/user")
+      .then(response => {
+        setListUsers(response.data)
+      })
+  }, [])
+
+
   return (
-  <div>
     <div>
-      <h1> Template </h1>
-      ;
+      <NavBar />
+
+      <Routes>
+        <Route path="/" element={<h2>Home</h2>} />
+        <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
+        <Route path="/profile" element={
+          <AuthRoute user={user} component={<Profile />} />} />
+      </Routes>
+
+
     </div>
-  </div>
-  )
-    
-  
+  );
 }
-//se exporta como todos los componentes y luego se importa
-export default App
+
+export default App;
