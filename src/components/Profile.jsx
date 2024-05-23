@@ -1,12 +1,12 @@
-import Menu from "./Menu/Menu"
+import Menu from "./Menu/Menu";
 
-
-function Profile({listusers}) {
-    return (
-        <div>Profile
-        <Menu listusers={listusers}/>
-        </div>
-    )
+function Profile() {
+  return (
+    <div>
+      Profile
+      <Menu />
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;

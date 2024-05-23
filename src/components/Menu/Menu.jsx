@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { FoodContext } from "../Context/FoodContext";
 
+function Menu() {
+  const listFoods = useContext(FoodContext);
 
-function Menu({ listUsers }) {
   return (
     <div>
       <h1>Week Menu</h1>
       <ul>
-        {listUsers.map(user => (
-          <li key={user.id}>{user.name}</li>
+        {listFoods.map(food => (
+          <li key={food.id}>{food.name}</li>
         ))}
       </ul>
     </div>
   );
 }
+
 export default Menu
