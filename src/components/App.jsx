@@ -12,6 +12,7 @@ import Register from "./Register";
 import Home from "./Home"; // Importamos el componente Home
 import { FoodProvider } from "./Context/FoodContext";
 import { MenuProvider } from "./Context/MenuContext";
+import "../scss/App.css"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,22 +29,24 @@ function App() {
   }, []);
 
   return (
-    <FoodProvider>
-      <MenuProvider>
-        <div>
-          {user && <NavBar />}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
-            <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
-            <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
-            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
-          </Routes>
-        </div>
-      </MenuProvider>
-    </FoodProvider>
+    <div className="mainStyle">
+      <FoodProvider>
+        <MenuProvider>
+          <div>
+            {user && <NavBar />}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
+              <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
+              <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
+              <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
+            </Routes>
+          </div>
+        </MenuProvider>
+      </FoodProvider>
+    </div>
   );
 }
 

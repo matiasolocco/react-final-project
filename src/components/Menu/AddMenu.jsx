@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../Context/FoodContext";
 import { MenuContext } from "../Context/MenuContext";
 import axios from "axios";
+import '../Menu/AddMenu.css'
 
 function AddMenu() {
   const { foods } = useContext(FoodContext);
@@ -44,7 +45,7 @@ function AddMenu() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="weekContainer">
         <label>Semana:</label>
         <input
           type="text"
@@ -53,7 +54,7 @@ function AddMenu() {
         />
       </div>
       {Object.keys(newMenu.menus).map(day => (
-        <div key={day}>
+        <div className="dayContainer" key={day}>
           <h3>{day}</h3>
           {["Desayuno", "Comida", "Cena"].map(category => (
             <div key={category}>

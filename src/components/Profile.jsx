@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "./Context/FoodContext";
 import { MenuContext } from "./Context/MenuContext";
+import '../scss/Profile.css'
 
 function Profile() {
   const { foods } = useContext(FoodContext);
@@ -20,9 +21,11 @@ function Profile() {
   if (!weeklyMenus || weeklyMenus.length === 0) {
     return (
       <div>
-        <h2>No hay menús semanales disponibles.</h2>
-        <button onClick={() => navigate("/add-menu")}>Agregar Menú Semanal</button>
-        <button onClick={() => navigate("/add-food")}>Agregar Comida</button>
+        <h2>Comienza a planificar tu semana!</h2>
+        <div className="buttons">
+          <button onClick={() => navigate("/add-menu")}>Agregar Menú Semanal</button>
+          <button onClick={() => navigate("/add-food")}>Agregar Comida</button>
+        </div>
       </div>
     );
   }

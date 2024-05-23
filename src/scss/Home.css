@@ -1,0 +1,41 @@
+a, a:link{
+    color: azure;
+}
+
+h1{
+    margin-top: 30px;
+}
+
+.homeStyle{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+
+.loginButton{
+    border: 1px solid #DDAA00;
+    border-radius: 16px;
+    padding: 7px;
+    margin-top: 20px;
+    width: 20vh;
+    text-align: center;
+    background-color: #DDAA00 ;
+    color: azure;
+    display: inline-block;
+}
+
+.registerButton{
+    border: 1px solid #A65111;
+    border-radius: 16px;
+    padding: 7px;
+    width: 20vh;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #A65111 ;
+    color: azure;
+    display: inline-block;
+}

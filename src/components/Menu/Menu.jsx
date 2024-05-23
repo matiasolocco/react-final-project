@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MenuContext } from "../Context/MenuContext";
+import '../Menu/Menu.css';
 
 function Menu() {
   const { weeklyMenus } = useContext(MenuContext);
@@ -11,13 +12,13 @@ function Menu() {
   const daysOfWeek = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
   return (
-    <div>
+    <div className="form">
       <h1>Mis Menús Semanales</h1>
       {weeklyMenus.map((menu, index) => (
-        <div key={index}>
+        <div className="weekContainer" key={index}>
           <h2>Semana: {menu.week}</h2>
           {daysOfWeek.map(day => (
-            <div key={day}>
+            <div className="dayContainer" key={day}>
               <h3>{day}</h3>
               {["Desayuno", "Comida", "Cena"].map(category => (
                 <div key={category}>

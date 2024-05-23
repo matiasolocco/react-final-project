@@ -1,0 +1,51 @@
+li {
+    list-style: none;
+}
+
+h2{
+    margin-top: 40px;
+}
+
+.navBar {
+    margin-top: 20px;
+    border: 1px solid #A65111;
+    background-color: #A65111;
+    border-radius: 16px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 5vh; 
+}
+
+.navBar ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.navBar li {
+    margin: 0 15px;
+}
+
+.navBar a {
+    text-decoration: none; 
+    color: black;
+}
+
+.navBar a:link {
+    color: white;
+}
+
+.navBar a:visited {
+    color: white; 
+}
+
+.navBar a:hover {
+    color: lightgray;
+}
+
+.navBar a:active {
+    color: gray; 
+}

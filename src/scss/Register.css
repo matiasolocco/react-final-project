@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 30px;
+    
+}
+
+.htmlfor{
+    border-radius: 15px;
+}
