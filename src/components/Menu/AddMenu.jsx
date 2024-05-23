@@ -25,6 +25,9 @@ function AddMenu() {
     axios.get("https://664ce655ede9a2b55652075c.mockapi.io/foods")
       .then(response => {
         setAllFoods(response.data);
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos de la API:', error);
       });
   }, []);
 

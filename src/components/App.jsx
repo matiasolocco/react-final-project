@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import axios from "axios";
 import Login from "./Login";
 import NavBar from "./NavBar";
@@ -7,6 +7,7 @@ import AuthRoute from "./AuthRoute/AuthRoute";
 import Profile from "./Profile";
 import AddMenu from "./Menu/AddMenu";
 import AddFood from "./Foods/AddFood";
+import Menu from "./Menu/Menu";
 import { FoodProvider } from "./Context/FoodContext";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
     axios.get("https://664e259dfafad45dfadf3290.mockapi.io/users")
       .then(response => {
         setListUsers(response.data);
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos de la API:', error);
       });
   }, []);
 
@@ -32,6 +36,7 @@ function App() {
           } />
           <Route path="/add-menu" element={<AddMenu />} />
           <Route path="/add-food" element={<AddFood />} />
+          <Route path="/menu" element={<Menu />} />
         </Routes>
       </div>
     </FoodProvider>
