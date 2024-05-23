@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import AuthRoute from "./AuthRoute/AuthRoute";
 import Profile from "./Profile";
-import { FoodProvider } from "./Context/FoodContext"; // Importa el proveedor de contexto
+import AddMenu from "./Menu/AddMenu";
+import AddFood from "./Foods/AddFood";
+import { FoodProvider } from "./Context/FoodContext";
 
 function App() {
-  const [user, setUser] = useState(null); // null === middleware
+  const [user, setUser] = useState(null);
   const [listUsers, setListUsers] = useState([]);
 
   useEffect(() => {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/profile" element={
             <AuthRoute user={user} component={<Profile />} />
           } />
+          <Route path="/add-menu" element={<AddMenu />} />
+          <Route path="/add-food" element={<AddFood />} />
         </Routes>
       </div>
     </FoodProvider>
