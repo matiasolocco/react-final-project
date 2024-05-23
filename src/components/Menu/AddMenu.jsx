@@ -68,6 +68,7 @@ function AddMenu() {
           ))}
         </div>
       ))}
+      
       <button type="submit">Agregar Menú</button>
       <button type="button" onClick={() => navigate("/add-food")}>Agregar Comida</button>
     </form>

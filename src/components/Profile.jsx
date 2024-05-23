@@ -56,7 +56,10 @@ function Profile() {
           ))}
         </div>
       ))}
+      <button onClick={() => navigate("/add-menu")}>Agregar Menú Semanal</button>
+     <button onClick={() => navigate("/add-food")}>Agregar Comida</button>
     </div>
+    
   );
 }
 

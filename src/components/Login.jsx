@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login({ setUser, listUsers }) {
   const [userLogin, setUserLogin] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleInput = (ev) => {
     const { id, value } = ev.target;
@@ -12,6 +14,7 @@ function Login({ setUser, listUsers }) {
     ev.preventDefault();
     if (!listUsers || listUsers.length === 0) {
       console.error("Error: listUsers no está definido o está vacío.");
+      alert("Error: No hay usuarios registrados.");
       return;
     }
     const findUser = listUsers.find(
@@ -19,8 +22,15 @@ function Login({ setUser, listUsers }) {
     );
     if (findUser) {
       setUser(findUser);
+      try {
+        navigate("/profile"); // Intentar redirigir al perfil
+      } catch (error) {
+        console.error("Error al redirigir al perfil:", error);
+        alert("Algo ocurrió mal al intentar redirigir al perfil.");
+      }
     } else {
       console.error("Error: Usuario no encontrado.");
+      alert("Error: Usuario o contraseña erronea.");
     }
   };
 

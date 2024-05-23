@@ -31,15 +31,15 @@ function App() {
     <FoodProvider>
       <MenuProvider>
         <div>
-          <NavBar />
+          {user && <NavBar />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
-            <Route path="/add-menu" element={<AddMenu />} />
-            <Route path="/add-food" element={<AddFood />} />
-            <Route path="/menu" element={<Menu />} />
+            <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
+            <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
+            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
           </Routes>
         </div>
       </MenuProvider>
