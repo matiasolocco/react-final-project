@@ -7,7 +7,6 @@ export const FoodContext = createContext();
 // Proveedor de contexto
 export const FoodProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
-  const [weeklyMenus, setWeeklyMenus] = useState([]);
 
   useEffect(() => {
     axios.get("https://664ce655ede9a2b55652075c.mockapi.io/foods")
@@ -30,12 +29,8 @@ export const FoodProvider = ({ children }) => {
       });
   };
 
-  const addNewMenu = (newMenu) => {
-    setWeeklyMenus(prevMenus => [...prevMenus, newMenu]);
-  };
-
   return (
-    <FoodContext.Provider value={{ foods, addNewFood, addNewMenu, weeklyMenus }}>
+    <FoodContext.Provider value={{ foods, addNewFood }}>
       {children}
     </FoodContext.Provider>
   );

@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "./Context/FoodContext";
+import { MenuContext } from "./Context/MenuContext";
 
 function Profile() {
-  const { foods, weeklyMenus } = useContext(FoodContext);
+  const { foods } = useContext(FoodContext);
+  const { weeklyMenus } = useContext(MenuContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +17,7 @@ function Profile() {
     return <div>Loading...</div>;
   }
 
-  if (!weeklyMenus || Object.keys(weeklyMenus).length === 0) {
+  if (!weeklyMenus || weeklyMenus.length === 0) {
     return (
       <div>
         <h2>No hay menús semanales disponibles.</h2>
@@ -30,25 +32,30 @@ function Profile() {
   return (
     <div>
       <h1>Mis Menús Semanales</h1>
-      {daysOfWeek.map(day => (
-        <div key={day}>
-          <h2>{day}</h2>
-          <ul>
-            {(weeklyMenus[day] || []).map(foodId => {
-              const food = foods.find(f => f.id === foodId);
-              return food ? (
-                <li key={food.id}>
-                  <div>{food.name}</div>
-                  <div>{food.category}</div>
-                  <div>{food.description}</div>
-                </li>
-              ) : null;
-            })}
-          </ul>
+      {weeklyMenus.map((menu, index) => (
+        <div key={index}>
+          <h2>Semana: {menu.week}</h2>
+          {daysOfWeek.map(day => (
+            <div key={day}>
+              <h3>{day}</h3>
+              {["Desayuno", "Comida", "Cena"].map(category => (
+                <div key={category}>
+                  <h4>{category}</h4>
+                  <ul>
+                    {menu.menus[day][category].map((food, idx) => (
+                      <li key={idx}>
+                        <div>{food.name}</div>
+                        <div>{food.category}</div>
+                        <div>{food.description}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       ))}
-      <button onClick={() => navigate("/add-menu")}>Agregar Menú Semanal</button>
-      <button onClick={() => navigate("/add-food")}>Agregar Comida</button>
     </div>
   );
 }

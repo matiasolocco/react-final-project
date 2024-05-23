@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../Context/FoodContext";
+import { MenuContext } from "../Context/MenuContext";
 import axios from "axios";
 
 function AddMenu() {
-  const { addNewMenu } = useContext(FoodContext);
-  const [allFoods, setAllFoods] = useState([]);
+  const { foods } = useContext(FoodContext);
+  const { addNewMenu } = useContext(MenuContext);
   const [newMenu, setNewMenu] = useState({
     week: "",
     menus: {
@@ -21,18 +22,8 @@ function AddMenu() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get("https://664ce655ede9a2b55652075c.mockapi.io/foods")
-      .then(response => {
-        setAllFoods(response.data);
-      })
-      .catch(error => {
-        console.error('Error al obtener los datos de la API:', error);
-      });
-  }, []);
-
   const handleFoodSelection = (day, category, foodId) => {
-    const selectedFood = allFoods.find(food => food.id === foodId);
+    const selectedFood = foods.find(food => food.id === foodId);
     setNewMenu(prevMenu => ({
       ...prevMenu,
       menus: {
@@ -69,7 +60,7 @@ function AddMenu() {
               <label>{category}:</label>
               <select onChange={(e) => handleFoodSelection(day, category, e.target.value)}>
                 <option value="">Selecciona una comida</option>
-                {allFoods.filter(food => food.category === category).map(food => (
+                {foods.filter(food => food.category === category).map(food => (
                   <option key={food.id} value={food.id}>{food.name}</option>
                 ))}
               </select>

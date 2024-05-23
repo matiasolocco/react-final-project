@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { FoodContext } from "../Context/FoodContext";
+import { MenuContext } from "../Context/MenuContext";
 
 function Menu() {
-  const { weeklyMenus } = useContext(FoodContext);
+  const { weeklyMenus } = useContext(MenuContext);
 
   if (!weeklyMenus || weeklyMenus.length === 0) {
     return <div>Loading...</div>;

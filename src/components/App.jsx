@@ -9,6 +9,7 @@ import AddMenu from "./Menu/AddMenu";
 import AddFood from "./Foods/AddFood";
 import Menu from "./Menu/Menu";
 import { FoodProvider } from "./Context/FoodContext";
+import { MenuProvider } from "./Context/MenuContext";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,19 +27,21 @@ function App() {
 
   return (
     <FoodProvider>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<h2>Home</h2>} />
-          <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
-          <Route path="/profile" element={
-            <AuthRoute user={user} component={<Profile />} />
-          } />
-          <Route path="/add-menu" element={<AddMenu />} />
-          <Route path="/add-food" element={<AddFood />} />
-          <Route path="/menu" element={<Menu />} />
-        </Routes>
-      </div>
+      <MenuProvider>
+        <div>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<h2>Home</h2>} />
+            <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
+            <Route path="/profile" element={
+              <AuthRoute user={user} component={<Profile />} />
+            } />
+            <Route path="/add-menu" element={<AddMenu />} />
+            <Route path="/add-food" element={<AddFood />} />
+            <Route path="/menu" element={<Menu />} />
+          </Routes>
+        </div>
+      </MenuProvider>
     </FoodProvider>
   );
 }
