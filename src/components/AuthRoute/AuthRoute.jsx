@@ -8,7 +8,7 @@ function AuthRoute({ user, component }) {
         return <Navigate to="/login" />
 
     if (user)
-        return component
+        return component //para mostrar el elemento a mostrar despues del login
 }
 
 export default AuthRoute

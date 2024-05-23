@@ -1,8 +1,11 @@
+import Menu from "./Menu/Menu"
 
 
-function Profile() {
+function Profile({listusers}) {
     return (
-        <div>Profile</div>
+        <div>Profile
+        <Menu listusers={listusers}/>
+        </div>
     )
 }
 

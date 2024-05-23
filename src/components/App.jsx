@@ -10,28 +10,29 @@ import Profile from "./Profile";
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)//null === middelware
   const [listUsers, setListUsers] = useState([])
 
   useEffect(() => {
-    axios.get("https://664865f02bb946cf2fa069a8.mockapi.io/user")
+    axios.get("https://664e259dfafad45dfadf3290.mockapi.io/users")
       .then(response => {
         setListUsers(response.data)
       })
   }, [])
 
+  
 
   return (
     <div>
       <NavBar />
-
+  
       <Routes>
         <Route path="/" element={<h2>Home</h2>} />
         <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
         <Route path="/profile" element={
-          <AuthRoute user={user} component={<Profile />} />} />
+          <AuthRoute user={user} component={<Profile  listUsers={listUsers}/>} />} />
       </Routes>
-
+      
 
     </div>
   );
