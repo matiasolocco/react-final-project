@@ -24,8 +24,8 @@ function Menu() {
                 <div key={category}>
                   <h4>{category}</h4>
                   <ul>
-                    {menu.menus[day][category].map((food, idx) => (
-                      <li key={idx}>
+                    {menu.menus[day][category].map((food, i) => (
+                      <li key={i}>
                         <div>{food.name}</div>
                         <div>{food.category}</div>
                         <div>{food.description}</div>

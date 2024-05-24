@@ -11,7 +11,6 @@ export const FoodProvider = ({ children }) => {
   useEffect(() => {
     axios.get("https://664ce655ede9a2b55652075c.mockapi.io/foods")
       .then(response => {
-        console.log('Datos de la API:', response.data); // Verificar los datos obtenidos
         setFoods(response.data);
       })
       .catch(error => {
@@ -29,8 +28,18 @@ export const FoodProvider = ({ children }) => {
       });
   };
 
+  const deleteFood = (foodId) => {
+    axios.delete(`https://664ce655ede9a2b55652075c.mockapi.io/foods/${foodId}`)
+      .then(() => {
+        setFoods(prevFoods => prevFoods.filter(food => food.id !== foodId));
+      })
+      .catch(error => {
+        console.error('Error al eliminar la comida:', error);
+      });
+  };
+
   return (
-    <FoodContext.Provider value={{ foods, addNewFood }}>
+    <FoodContext.Provider value={{ foods, addNewFood, deleteFood }}>
       {children}
     </FoodContext.Provider>
   );

@@ -6,12 +6,11 @@ import AuthRoute from "./AuthRoute/AuthRoute";
 import Profile from "./Profile";
 import AddMenu from "./Menu/AddMenu";
 import AddFood from "./Foods/AddFood";
-import Menu from "./Menu/Menu";
+import Food from "./Foods/Food"; // Importamos el componente Food
 import Login from "./Login";
 import Register from "./Register";
-import Home from "./Home"; // Importamos el componente Home
+import Home from "./Home";
 import { FoodProvider } from "./Context/FoodContext";
-import { MenuProvider } from "./Context/MenuContext";
 import "../scss/App.css"
 
 function App() {
@@ -31,20 +30,18 @@ function App() {
   return (
     <div className="mainStyle">
       <FoodProvider>
-        <MenuProvider>
-          <div>
-            {user && <NavBar />}
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
-              <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
-              <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
-              <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
-            </Routes>
-          </div>
-        </MenuProvider>
+        <div>
+          {user && <NavBar />}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
+            <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
+            <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
+            <Route path="/food" element={<AuthRoute user={user} component={<Food />} />} />
+          </Routes>
+        </div>
       </FoodProvider>
     </div>
   );

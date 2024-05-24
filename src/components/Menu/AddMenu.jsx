@@ -1,13 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../Context/FoodContext";
-import { MenuContext } from "../Context/MenuContext";
-import axios from "axios";
-import '../Menu/AddMenu.css'
+import '../Menu/AddMenu.css';
 
 function AddMenu() {
   const { foods } = useContext(FoodContext);
-  const { addNewMenu } = useContext(MenuContext);
   const [newMenu, setNewMenu] = useState({
     week: "",
     menus: {
@@ -39,7 +36,7 @@ function AddMenu() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewMenu(newMenu);
+    console.log(newMenu);
     navigate("/profile");
   };
 

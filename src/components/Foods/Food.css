@@ -1,0 +1,23 @@
+.foodItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .foodItem div {
+    margin-right: 10px;
+  }
+  
+  .foodItem button {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .foodItem button:hover {
+    background-color: #ff0000;
+  }
+  
