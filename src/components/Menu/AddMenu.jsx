@@ -4,7 +4,7 @@ import { FoodContext } from "../Context/FoodContext";
 import '../Menu/AddMenu.css';
 
 function AddMenu() {
-  const { foods } = useContext(FoodContext);
+  const { foods, addNewMenu } = useContext(FoodContext);
   const [newMenu, setNewMenu] = useState({
     week: "",
     menus: {
@@ -36,8 +36,8 @@ function AddMenu() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newMenu);
-    navigate("/profile");
+    addNewMenu(newMenu);
+    navigate("/menu");
   };
 
   return (

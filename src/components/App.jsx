@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import AddMenu from "./Menu/AddMenu";
 import AddFood from "./Foods/AddFood";
 import Food from "./Foods/Food"; // Importamos el componente Food
+import Menu from "./Menu/Menu"; // Importamos el componente Menu
 import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
             <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
             <Route path="/food" element={<AuthRoute user={user} component={<Food />} />} />
+            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} /> {/* Agregamos la ruta para Menu */}
           </Routes>
         </div>
       </FoodProvider>

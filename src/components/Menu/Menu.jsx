@@ -1,12 +1,20 @@
 import React, { useContext } from "react";
-import { MenuContext } from "../Context/MenuContext";
+import { useNavigate } from "react-router-dom";
+import { FoodContext } from "../Context/FoodContext";
 import '../Menu/Menu.css';
 
 function Menu() {
-  const { weeklyMenus } = useContext(MenuContext);
+  const { weeklyMenus } = useContext(FoodContext);
+  const navigate = useNavigate();
 
   if (!weeklyMenus || weeklyMenus.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div className="form">
+        <h1>Mis Menús Semanales</h1>
+        <div>Aún no tienes un menú planificado</div>
+        <button onClick={() => navigate("/add-menu")}>Planificar nuevo Menú</button>
+      </div>
+    );
   }
 
   const daysOfWeek = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
@@ -38,6 +46,7 @@ function Menu() {
           ))}
         </div>
       ))}
+      <button onClick={() => navigate("/add-menu")}>Planificar nuevo Menú</button>
     </div>
   );
 }
