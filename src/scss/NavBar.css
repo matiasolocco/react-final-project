@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
 li {
     list-style: none;
 }
@@ -9,13 +11,15 @@ h2{
 .navBar {
     margin-top: 20px;
     border: 1px solid #A65111;
-    background-color: #A65111;
+    background-color: #B46617;
     border-radius: 16px;
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
     height: 5vh; 
+    box-shadow: 0px 0px 30px 7px rgba(0,0,0,0.75);
+
 }
 
 .navBar ul {
@@ -23,15 +27,18 @@ h2{
     flex-direction: row;
     padding: 0;
     margin: 0;
+   
 }
 
 .navBar li {
     margin: 0 15px;
+
 }
 
 .navBar a {
     text-decoration: none; 
     color: black;
+    font-family: "Quicksand", sans-serif;
 }
 
 .navBar a:link {

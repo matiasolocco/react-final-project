@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../Context/FoodContext";
 import '../Menu/Menu.css';
@@ -6,6 +6,7 @@ import '../Menu/Menu.css';
 function Menu() {
   const { weeklyMenus } = useContext(FoodContext);
   const navigate = useNavigate();
+  const [selectedDay, setSelectedDay] = useState("");
 
   if (!weeklyMenus || weeklyMenus.length === 0) {
     return (
@@ -21,14 +22,32 @@ function Menu() {
 
   const daysOfWeek = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
+  const filteredMenus = selectedDay
+    ? weeklyMenus.map(menu => ({
+        ...menu,
+        menus: {
+          [selectedDay]: menu.menus[selectedDay]
+        }
+      }))
+    : weeklyMenus;
+
   return (
     <div className="mainMenu">
       <h1>Mis Menús Semanales</h1>
-      {weeklyMenus.map((menu, index) => (
+      <div className="filterContainer">
+        <label htmlFor="dayFilter">Filtrar por día:</label>
+        <select id="dayFilter" onChange={(e) => setSelectedDay(e.target.value)} value={selectedDay}>
+          <option value="">Todos los días</option>
+          {daysOfWeek.map(day => (
+            <option key={day} value={day}>{day}</option>
+          ))}
+        </select>
+      </div>
+      {filteredMenus.map((menu, index) => (
         <div className="weekContainer" key={index}>
-          <h2>Mes y semana :  {menu.week}</h2>
+          <h2>Mes y semana: {menu.week}</h2>
           <div className="dayGrid">
-            {daysOfWeek.map(day => (
+            {Object.keys(menu.menus).map(day => (
               <div className="dayContainer" key={day}>
                 <h3>{day}</h3>
                 {["Desayuno", "Comida", "Cena"].map(category => (

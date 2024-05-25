@@ -29,7 +29,7 @@ function AddFood() {
 
   return (
     <div className="addFood">
-      <h1>Agrega una nueva  Comida</h1>
+      <h1>Agrega una nueva comida</h1>
       <form className="addFoodBox" onSubmit={handleSubmit}>
        
         <div className="fields">

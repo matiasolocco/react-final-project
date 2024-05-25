@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FoodContext } from "../Context/FoodContext";
 import '../Menu/AddMenu.css';
 
 function AddMenu() {
-  const { foods, addNewMenu } = useContext(FoodContext);
+  const { foods, addNewMenu, updateMenu } = useContext(FoodContext);
   const [newMenu, setNewMenu] = useState({
     week: "",
     menus: {
@@ -19,6 +19,14 @@ function AddMenu() {
   });
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const editingMenu = location.state ? location.state.menu : null;
+
+  useEffect(() => {
+    if (editingMenu) {
+      setNewMenu(editingMenu);
+    }
+  }, [editingMenu]);
 
   const handleFoodSelection = (day, category, foodId) => {
     const selectedFood = foods.find(food => food.id === foodId);
@@ -36,7 +44,11 @@ function AddMenu() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewMenu(newMenu);
+    if (editingMenu) {
+      updateMenu(newMenu);
+    } else {
+      addNewMenu(newMenu);
+    }
     navigate("/menu");
   };
 
@@ -62,12 +74,17 @@ function AddMenu() {
                   <option key={food.id} value={food.id}>{food.name}</option>
                 ))}
               </select>
+              <ul>
+                {newMenu.menus[day][category].map((food, i) => (
+                  <li key={i}>{food.name}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       ))}
       
-      <button type="submit">Agregar Menú</button>
+      <button type="submit">{editingMenu ? "Modificar Menú" : "Agregar Menú"}</button>
       <button type="button" onClick={() => navigate("/add-food")}>Agregar Comida</button>
     </form>
   );

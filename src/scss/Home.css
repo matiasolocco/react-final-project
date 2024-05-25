@@ -2,8 +2,16 @@ a, a:link{
     color: azure;
 }
 
-h1{
-    margin-top: 30px;
+.logo{
+    margin-top: 0px;
+    font-size: xx-large;
+    margin-bottom: 5%;
+}
+.slogan{
+    margin-bottom: 5%;
+    font-size: x-large;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 200;
 }
 
 .homeStyle{
@@ -13,30 +21,43 @@ h1{
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    margin-top: 60%;
+    margin-top: 10%;
+    
 }
 
 
 .loginButton{
-    border: 1px solid #DDAA00;
+    border: 1px solid #ffba00;
     border-radius: 16px;
     padding: 7px;
     margin-top: 20px;
     width: 20vh;
     text-align: center;
-    background-color: #DDAA00 ;
+    background-color: #ffba00 ;
     color: azure;
     display: inline-block;
+    box-shadow: 0px 0px 30px 7px rgba(0,0,0,0.75);
 }
 
 .registerButton{
-    border: 1px solid #A65111;
+    border: 1px solid #b46617;
     border-radius: 16px;
     padding: 7px;
     width: 20vh;
     margin-top: 20px;
     text-align: center;
-    background-color: #A65111 ;
+    background-color: #b46617 ;
     color: azure;
     display: inline-block;
+    box-shadow: 0px 0px 30px 7px rgba(0,0,0,0.75);
+}
+
+.registerButton:hover, .loginButton:hover{
+    cursor: pointer;
+    font-weight: 700;
+    transform:scale(1.05);
+}
+
+.background{
+    background-image: url('images.rawpixel.com/image_png_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3YyMTFiYXRjaDExLWtpYi0zMzgtZGlldC5wbmc.png');
 }

@@ -1,19 +1,19 @@
 button{
-    border: 1px solid #DDAA00;
+    border: 1px solid #6D9773;
     border-radius: 16px;
     padding: 7px;
     margin-top: 20px;
     width: 40vh;
     text-align: center;
-    background-color: #dda900 ;
+    background-color: #6D9773 ;
     color: azure;
     display: inline-block;
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.15);
+    font-family: "Quicksand", sans-serif;
 }
 
 button:hover{
     cursor: pointer;
-    color: #a65111;
     font-weight: 700;
     transform:scale(1.05);
 }

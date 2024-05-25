@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 
 *{
   margin: 0px;
-  font-family: "Montserrat", sans-serif;
-  
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;  
 }
 a:link{
   text-decoration: none;
 }
 .mainStyle{
   padding: 10px;
-  background-color: #4C482E ;
+  background-color: #092920 ;
   color: azure;
   height: 100vh;
   display: flex;
