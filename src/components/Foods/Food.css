@@ -14,11 +14,15 @@
   background-color: #173F4E;
   padding: 10px;
   margin-top: 15px; 
+  margin-right: 20px;
   width: 40vh;
   }
 
   .foodBox{
-    padding-left: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
   }
   
  
@@ -38,4 +42,14 @@
   .delete:hover {
     background-color: #ff0000;
   }
+  @media (max-width: 1100px) {
+    .foodBox {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   
+  @media (max-width: 650px) {
+    .foodBox {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
