@@ -15,6 +15,7 @@ button:hover{
     cursor: pointer;
     color: #a65111;
     font-weight: 700;
+    transform:scale(1.05);
 }
 
 .buttons{
@@ -23,3 +24,6 @@ button:hover{
     align-items: center;
 }
 
+.intro{
+    margin-top: 40%;
+}

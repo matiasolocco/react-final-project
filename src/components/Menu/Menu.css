@@ -1,9 +1,14 @@
-
+.mainMenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .weekContainer {
   margin-top: 40px;
   margin-bottom: 25px; 
-  width: 80%;
+  width:fit-content;
   border: 4px solid #a3612e;
   border-radius: 16px;
   background-color: #a3612e93;
@@ -39,7 +44,7 @@ h3{
   text-align: left;
 }
 
-©
+
 
 .smallFoodBox{
   padding: 5px;
@@ -47,4 +52,23 @@ h3{
   background-color: #0e262e;
   border-radius: 10px;
   
+}
+
+.noMenuStyle{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30%;
+}
+
+.menuButtons{
+  display: flex;
+  flex-direction: column;
+}
+.mainButton{
+  background-color: #a65111;
+  border-color: #a65111;
+}
+.mainButton:hover{
+  color: azure;
 }

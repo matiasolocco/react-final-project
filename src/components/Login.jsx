@@ -36,17 +36,18 @@ function Login({ setUser, listUsers }) {
   };
 
   return (
-    <div>
-      <form className="formStyle">
-        <label className="htmlFor" htmlFor="email">Email</label>
-        <input type="text" id="email" onChange={handleInput} value={userLogin.email} />
-        <label className="htmlFor" htmlFor="password">Password</label>
-        <input type="password" id="password" onChange={handleInput} value={userLogin.password} />
-        <button className="loginButton" type="submit" onClick={handleClick}>
-          Iniciar sesión
-        </button>
-      </form>
-    </div>
+  
+      <div className="formStyle">
+        <form >
+          <label className="htmlFor" htmlFor="email">Email</label>
+          <input type="text" id="email" onChange={handleInput} value={userLogin.email} />
+          <label className="htmlFor" htmlFor="password">Password</label>
+          <input type="password" id="password" onChange={handleInput} value={userLogin.password} />
+          <button className="loginButton" type="submit" onClick={handleClick}>
+          Iniciar sesión</button>
+        </form>
+      </div>
+    
   );
 }
 

@@ -31,19 +31,21 @@ function App() {
   return (
     <div className="mainStyle">
       <FoodProvider>
-        <div className="appStyle">
-          {user && <NavBar />}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
-            <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
-            <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
-            <Route path="/food" element={<AuthRoute user={user} component={<Food />} />} />
-            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
-          </Routes>
-        </div>
+        
+          <div>
+            {user && <NavBar />}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login listUsers={listUsers} setUser={setUser} />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/profile" element={<AuthRoute user={user} component={<Profile />} />} />
+              <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
+              <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
+              <Route path="/food" element={<AuthRoute user={user} component={<Food />} />} />
+              <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
+            </Routes>
+          </div>
+        
       </FoodProvider>
     </div>
   );

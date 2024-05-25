@@ -16,7 +16,7 @@ function Profile() {
   }
 
   return (
-    <div>
+    <div className="intro">
       <h2>Comienza a planificar tu semana!</h2>
       <div className="buttons">
         <button onClick={() => navigate("/menu")}>Mi Menú Semanal</button>
