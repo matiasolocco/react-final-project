@@ -11,16 +11,15 @@ function Profile() {
     console.log("Foods:", foods);
   }, [foods]);
 
-  if (!foods || foods.length === 0) {
-    return <div>Loading...</div>;
-  }
 
   return (
-    <div className="intro">
-      <h2>Comienza a planificar tu semana!</h2>
-      <div className="buttons">
-        <button onClick={() => navigate("/menu")}>Mi Menú Semanal</button>
-        <button onClick={() => navigate("/food")}>Mis Comidas</button>
+    <div className="profileFrame">
+      <div className="intro">
+        <h2>Comienza a planificar tu semana!</h2>
+        <div className="buttons">
+          <button onClick={() => navigate("/menu")}>Mi Menú Semanal</button>
+          <button onClick={() => navigate("/food")}>Mis Comidas</button>
+        </div>
       </div>
     </div>
   );

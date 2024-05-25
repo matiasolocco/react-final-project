@@ -37,15 +37,16 @@ function Login({ setUser, listUsers }) {
 
   return (
   
-      <div className="formStyle">
+      <div className="frameStyle">
+      <div className="inputStyle">
+      <h3 className="title">Bienvenid@ de nuevo!</h3>
         <form >
-          <label className="htmlFor" htmlFor="email">Email</label>
-          <input type="text" id="email" onChange={handleInput} value={userLogin.email} />
-          <label className="htmlFor" htmlFor="password">Password</label>
-          <input type="password" id="password" onChange={handleInput} value={userLogin.password} />
-          <button className="loginButton" type="submit" onClick={handleClick}>
-          Iniciar sesión</button>
+            <input type="text" id="email" placeholder="Correo electrónico" className="inputFields" onChange={handleInput} value={userLogin.email} />
+            <input type="password" id="password" placeholder="Contraseña" className="inputFields" onChange={handleInput} value={userLogin.password} />
+            <button className="loginButton" type="submit" onClick={handleClick}>
+            Iniciar sesión</button> 
         </form>
+        </div>
       </div>
     
   );

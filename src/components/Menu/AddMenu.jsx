@@ -31,10 +31,7 @@ function AddMenu() {
   const handleFoodSelection = (day, category, foodId) => {
     const selectedFood = foods.find(food => food.id === foodId);
     setNewMenu(prevMenu => ({
-      ...prevMenu,
-      menus: {
-        ...prevMenu.menus,
-        [day]: {
+      ...prevMenu,menus: {...prevMenu.menus,[day]: {
           ...prevMenu.menus[day],
           [category]: [...prevMenu.menus[day][category], selectedFood],
         },
@@ -42,8 +39,8 @@ function AddMenu() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
     if (editingMenu) {
       updateMenu(newMenu);
     } else {
@@ -74,11 +71,6 @@ function AddMenu() {
                   <option key={food.id} value={food.id}>{food.name}</option>
                 ))}
               </select>
-              <ul>
-                {newMenu.menus[day][category].map((food, i) => (
-                  <li key={i}>{food.name}</li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

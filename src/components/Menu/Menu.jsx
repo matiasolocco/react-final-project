@@ -10,12 +10,14 @@ function Menu() {
 
   if (!weeklyMenus || weeklyMenus.length === 0) {
     return (
-      <div className="noMenuStyle">
-        <h1>Mis Menús Semanales</h1>
-        <div>Aún no tienes un menú planificado</div>
-        <button onClick={() => navigate("/add-menu")}>Planificar nuevo Menú</button>
-        <button onClick={() => navigate("/add-food")}>Agrega una nueva comida</button>
-        <button onClick={() => navigate("/food")}>Ver todas mis comidas</button>
+      <div className="noMenuFrame"> 
+        <div className="noMenuStyle">
+          <h1>Mis Menús Semanales</h1>
+          <div>Aún no tienes un menú planificado</div>
+          <button onClick={() => navigate("/add-menu")}>Planificar nuevo Menú</button>
+          <button onClick={() => navigate("/add-food")}>Agrega una nueva comida</button>
+          <button onClick={() => navigate("/food")}>Ver todas mis comidas</button>
+        </div>
       </div>
     );
   }

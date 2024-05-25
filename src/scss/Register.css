@@ -10,8 +10,21 @@ h2{
     text-align: center;
     margin: 30px;
     
+    
 }
 
 .htmlfor{
     border-radius: 15px;
+}
+
+.registerFrame{
+    background-image: url('../images/transparent-calendar-islamic-calendar-calendar-year-download-g-628dbe98426e08.2020552716534565362721.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 95%;
+    background-position: 50% 90%;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
 }

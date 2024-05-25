@@ -25,5 +25,18 @@ button:hover{
 }
 
 .intro{
-    margin-top: 40%;
+    margin-top: 15%;
+   
+}
+
+.profileFrame{
+    background-image: url('../images/transparent-salad-vegetables-fresh-vegetables-colorful-fruits-colorful-bowl-of-fresh-fruits-and-vegetables65b38b6cdaa2a3.4274166917062654528955.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 95%;
+    background-position: 50% 90%;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
 }

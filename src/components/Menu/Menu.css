@@ -92,3 +92,15 @@ h3{
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+.noMenuFrame{
+  background-image: url('/Users/kanshamusic/Desktop/FSWD/React/React Project Clone/react-final-project/src/images/transparent-salad-vegetables-fresh-vegetables-colorful-fruits-colorful-bowl-of-fresh-fruits-and-vegetables65b38b6cdaa2a3.4274166917062654528955.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 95%;
+    background-position: 50% 90%;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
+}

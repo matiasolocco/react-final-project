@@ -1,8 +1,33 @@
-.formStyle{
-    margin-top: 90%;
+.frameStyle{
+    margin-top: 10%;
+    background-image: url('../images/transparent-calendar-islamic-calendar-calendar-year-download-g-628dbe98426e08.2020552716534565362721.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 95%;
+    background-position: 50% 90%;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    font-size: 35px;
+    text-align: center;
+}
+.inputStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
     
 }
 
 .htmlfor{
     border-radius: 15px;
+}
+
+.inputFields{
+    margin-right: 10px;
 }

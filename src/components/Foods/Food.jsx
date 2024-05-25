@@ -7,9 +7,6 @@ function Food() {
   const { foods, deleteFood } = useContext(FoodContext);
   const navigate = useNavigate();
 
-  if (!foods || foods.length === 0) {
-    return <div>Loading...</div>;
-  }
 
   const handleDelete = (foodId) => {
     deleteFood(foodId);

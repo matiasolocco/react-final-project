@@ -4,14 +4,14 @@ a, a:link{
 
 .logo{
     margin-top: 0px;
-    font-size: xx-large;
+    font-size: 40px;
     margin-bottom: 5%;
 }
 .slogan{
     margin-bottom: 5%;
-    font-size: x-large;
+    font-size: 30px;
     font-family: "Quicksand", sans-serif;
-    font-weight: 200;
+    font-weight: 500;
 }
 
 .homeStyle{
@@ -21,7 +21,8 @@ a, a:link{
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    margin-top: 10%;
+    margin-top: 10px;
+    
     
 }
 
@@ -58,6 +59,14 @@ a, a:link{
     transform:scale(1.05);
 }
 
-.background{
-    background-image: url('images.rawpixel.com/image_png_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3YyMTFiYXRjaDExLWtpYi0zMzgtZGlldC5wbmc.png');
+.frame{
+    background-image: url('../images/transparent-salad-vegetables-fresh-fruits-and-vegetables-healt-colorful-fresh-fruits-and-vegetables-arranged-arti65b4873a24b031.0247198517063299141503.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 110vh;
+    padding-bottom: 400px;
+    background-position: 50% 90%;
+    z-index: -10;
+    
 }
+

@@ -8,28 +8,29 @@ function Register() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
     try {
       const response = await axios.post("https://664e259dfafad45dfadf3290.mockapi.io/users", { email, password });
       console.log("Usuario registrado:", response.data);
       message("Registro exitoso. Ahora puede iniciar sesión.");
-      navigate("/login"); // Redirige al usuario a la página de inicio de sesión
+      navigate("/login");
     } catch (error) {
       console.error("Error al registrar usuario:", error);
-      // Muestra un mensaje de error al usuario
       message("Error al registrar usuario. Por favor, inténtelo de nuevo.");
     }
   };
 
   return (
-    <div className="formStyle">
-      <h2>Comineza a planificar tu menu semanal</h2>
-      <form  onSubmit={handleSubmit}>
-        <input type="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button className="registerButton" type="submit">Registrarse</button>
-      </form>
+    <div className="registerFrame">
+      <div className="formStyle">
+        <h2>Comineza a planificar tu menú semanal</h2>
+        <form  onSubmit={handleSubmit}>
+          <input type="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <button className="registerButton" type="submit">Registrarse</button>
+        </form>
+      </div>
     </div>
   );
 }
