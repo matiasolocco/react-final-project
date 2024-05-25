@@ -1,23 +1,40 @@
+.mainStyle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .foodItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  border-radius:  16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  background-color: #173F4E;
+  padding: 10px;
+  margin-top: 15px; 
+  width: 40vh;
+  }
+
+  .foodBox{
+    padding-left: 0px;
   }
   
-  .foodItem div {
-    margin-right: 10px;
-  }
-  
-  .foodItem button {
+ 
+  .delete {
+    border-radius: 16px;
+    font-size: 10px;
     margin-left: auto;
     padding: 5px 10px;
+    margin-top: 10px;
     background-color: #ff4d4d;
     color: white;
     border: none;
     cursor: pointer;
+    
   }
   
-  .foodItem button:hover {
+  .delete:hover {
     background-color: #ff0000;
   }
   

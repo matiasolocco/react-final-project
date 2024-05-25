@@ -43,7 +43,7 @@ function AddMenu() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="weekContainer">
-        <label>Semana:</label>
+        <label>Mes y semana: </label>
         <input
           type="text"
           value={newMenu.week}

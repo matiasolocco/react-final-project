@@ -16,19 +16,19 @@ function Food() {
   };
 
   return (
-    <div>
-      <h1>Mis Comidas</h1>
-      <ul>
+    <div className="mainStyle">
+      <h1>Mis Comidas Guardadas</h1>
+      <ul className="foodBox">
         {foods.map(food => (
           <li key={food.id} className="foodItem">
-            <div>{food.name}</div>
-            <div>{food.category}</div>
-            <div>{food.description}</div>
-            <button onClick={() => handleDelete(food.id)}>Eliminar</button>
+            <h3>Comida: {food.category}</h3>
+            <h4>Nombre: {food.name}</h4>
+            <p>Ingredientes: {food.description}</p>
+            <div className='delete' onClick={() => handleDelete(food.id)}>Eliminar</div>
           </li>
         ))}
       </ul>
-      <button onClick={() => navigate("/add-food")}>Agregar Comida</button>
+      <button onClick={() => navigate("/add-food")}>Agregar Nueva Comida</button>
     </div>
   );
 }

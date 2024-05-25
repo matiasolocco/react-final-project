@@ -6,13 +6,13 @@ import AuthRoute from "./AuthRoute/AuthRoute";
 import Profile from "./Profile";
 import AddMenu from "./Menu/AddMenu";
 import AddFood from "./Foods/AddFood";
-import Food from "./Foods/Food"; // Importamos el componente Food
-import Menu from "./Menu/Menu"; // Importamos el componente Menu
+import Food from "./Foods/Food";
+import Menu from "./Menu/Menu";
 import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home";
 import { FoodProvider } from "./Context/FoodContext";
-import "../scss/App.css"
+import "../scss/App.css";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="mainStyle">
       <FoodProvider>
-        <div>
+        <div className="appStyle">
           {user && <NavBar />}
           <Routes>
             <Route path="/" element={<Home />} />
@@ -41,7 +41,7 @@ function App() {
             <Route path="/add-menu" element={<AuthRoute user={user} component={<AddMenu />} />} />
             <Route path="/add-food" element={<AuthRoute user={user} component={<AddFood />} />} />
             <Route path="/food" element={<AuthRoute user={user} component={<Food />} />} />
-            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} /> {/* Agregamos la ruta para Menu */}
+            <Route path="/menu" element={<AuthRoute user={user} component={<Menu />} />} />
           </Routes>
         </div>
       </FoodProvider>

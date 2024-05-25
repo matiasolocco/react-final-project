@@ -24,26 +24,27 @@ function Menu() {
       <h1>Mis Menús Semanales</h1>
       {weeklyMenus.map((menu, index) => (
         <div className="weekContainer" key={index}>
-          <h2>Semana: {menu.week}</h2>
-          {daysOfWeek.map(day => (
-            <div className="dayContainer" key={day}>
-              <h3>{day}</h3>
-              {["Desayuno", "Comida", "Cena"].map(category => (
-                <div key={category}>
-                  <h4>{category}</h4>
-                  <ul>
-                    {menu.menus[day][category].map((food, i) => (
-                      <li key={i}>
-                        <div>{food.name}</div>
-                        <div>{food.category}</div>
-                        <div>{food.description}</div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
+          <h2>Mes y semana :  {menu.week}</h2>
+          <div className="dayGrid">
+            {daysOfWeek.map(day => (
+              <div className="dayContainer" key={day}>
+                <h3>{day}</h3>
+                {["Desayuno", "Comida", "Cena"].map(category => (
+                  <div key={category}>
+                    <h4 className="foodCategory">{category}</h4>
+                    <ul className="smallFoodBox">
+                      {menu.menus[day][category].map((food, i) => (
+                        <li key={i}>
+                          <h5>{food.name}</h5>
+                          <p>Ingredientes: {food.description}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       ))}
       <button onClick={() => navigate("/add-menu")}>Planificar nuevo Menú</button>
