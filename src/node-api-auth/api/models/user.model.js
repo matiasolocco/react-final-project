@@ -7,7 +7,6 @@ const userSchema = new Schema(
     lastname: { type: String, require: true },
     menu: [{ type: Schema.ObjectId, ref: 'menu'}], 
     food: [{ type: Schema.ObjectId, ref: 'food'}],
-    ingredients: [{ type: Schema.ObjectId, ref: 'ingredients'}],
     email: { type: String, require: true },
     password: { type: String, require: true },
     role: {

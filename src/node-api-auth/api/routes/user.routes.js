@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { register, login, modifyProfile, selectUser, updateUser } = require('../controllers/user.controller');
+const { register, login, modifyProfile, selectUser, updateUser } = require('../controllers/user.controller')
 const { isAuth } = require("../../middleware/auth");
 
 //1ª endpoint para regitrar un nuevo usuario
