@@ -1,10 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-// Crear el contexto
+
 export const FoodContext = createContext();
 
-// Proveedor de contexto
+
 export const FoodProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
   const [weeklyMenus, setWeeklyMenus] = useState([]);
