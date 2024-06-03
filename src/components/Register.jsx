@@ -11,9 +11,10 @@ function Register() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post("https://664e259dfafad45dfadf3290.mockapi.io/users", { email, password });
+      //CONEXION NODE URL REGISTER
+      const response = await axios.post("http://localhost:${PORT}/user/register", { email, password });
       console.log("Usuario registrado:", response.data);
-      message("Registro exitoso. Ahora puede iniciar sesión.");
+      message("Registro exitoso. Ahora puedes iniciar sesión.");
       navigate("/login");
     } catch (error) {
       console.error("Error al registrar usuario:", error);

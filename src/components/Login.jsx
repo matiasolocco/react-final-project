@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../scss/Login.css'
+import axios from "axios";
 
 function Login({ setUser, listUsers }) {
   const [userLogin, setUserLogin] = useState({ email: "", password: "" });
@@ -11,12 +12,19 @@ function Login({ setUser, listUsers }) {
     setUserLogin({ ...userLogin, [id]: value });
   };
 
-  const handleClick = (ev) => {
+  const handleClick = async (ev) => {
     ev.preventDefault();
+
     if (!listUsers || listUsers.length === 0) {
       console.error("Error: listUsers no está definido o está vacío.");
       alert("Error: No hay usuarios registrados.");
-      return;
+      //CONEXION NODE URL LOGIN
+      try {
+        const response = await axios.get("http://localhost:${PORT}/user/login")
+      } catch (error) {
+        console.error("Error al redirigir al hacer login", error);
+        message("Algo ocurrió mal al intentar acceder a tu perfil")
+      }
     }
     const findUser = listUsers.find(
       (user) => user.email === userLogin.email && user.password === userLogin.password
@@ -27,11 +35,11 @@ function Login({ setUser, listUsers }) {
         navigate("/profile"); // Intentar redirigir al perfil
       } catch (error) {
         console.error("Error al redirigir al perfil:", error);
-        alert("Algo ocurrió mal al intentar redirigir al perfil.");
+        message("Algo ocurrió mal al intentar redirigir al perfil.");
       }
     } else {
       console.error("Error: Usuario no encontrado.");
-      alert("Error: Usuario o contraseña erronea.");
+      message("Error: Usuario o contraseña erronea.");
     }
   };
 
