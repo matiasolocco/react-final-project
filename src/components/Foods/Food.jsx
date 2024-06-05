@@ -9,6 +9,7 @@ function Food() {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleDelete = (foodId) => {
+    console.log(`Food ID to delete: ${foodId}`); // Agrega este log para depuración
     deleteFood(foodId);
   };
 
@@ -34,11 +35,11 @@ function Food() {
       </div>
       <ul className="foodBox">
         {filteredFoods.map(food => (
-          <li key={food.id} className="foodItem">
+          <li key={food._id} className="foodItem">
             <h3>Comida: {food.category}</h3>
             <h4>Nombre: {food.name}</h4>
             <p>Ingredientes: {food.description}</p>
-            <div className='delete' onClick={() => handleDelete(food.id)}>Eliminar</div>
+            <div className='delete' onClick={() => handleDelete(food._id)}>Eliminar</div>
           </li>
         ))}
       </ul>

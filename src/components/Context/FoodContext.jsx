@@ -1,16 +1,14 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-
 export const FoodContext = createContext();
-
 
 export const FoodProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
   const [weeklyMenus, setWeeklyMenus] = useState([]);
 
   useEffect(() => {
-    axios.get("https://664ce655ede9a2b55652075c.mockapi.io/foods")
+    axios.get("http://localhost:5001/food/select")
       .then(response => {
         setFoods(response.data);
       })
@@ -20,7 +18,7 @@ export const FoodProvider = ({ children }) => {
   }, []);
 
   const addNewFood = (newFood) => {
-    axios.post("https://664ce655ede9a2b55652075c.mockapi.io/foods", newFood)
+    axios.post("http://localhost:5001/food/add", newFood)
       .then(response => {
         setFoods(prevFoods => [...prevFoods, response.data]);
       })
@@ -30,14 +28,15 @@ export const FoodProvider = ({ children }) => {
   };
 
   const deleteFood = (foodId) => {
-    axios.delete(`https://664ce655ede9a2b55652075c.mockapi.io/foods/${foodId}`)
+    console.log(`Food ID to delete: ${foodId}`); // Agrega este log para depuración
+    axios.delete(`http://localhost:5001/food/delete/${foodId}`)
       .then(() => {
-        setFoods(prevFoods => prevFoods.filter(food => food.id !== foodId));
+        setFoods(prevFoods => prevFoods.filter(food => food._id !== foodId));
       })
       .catch(error => {
         console.error('Error al eliminar la comida:', error);
       });
-  };
+  };  
 
   const addNewMenu = (newMenu) => {
     setWeeklyMenus(prevMenus => [...prevMenus, newMenu]);
