@@ -17,10 +17,12 @@ function Login({ setUser, listUsers }) {
 
     if (!listUsers || listUsers.length === 0) {
       console.error("Error: listUsers no está definido o está vacío.");
-      alert("Error: No hay usuarios registrados.");
+      message("Error: No hay usuarios registrados.");
       //CONEXION NODE URL LOGIN
       try {
-        const response = await axios.get("http://localhost:${PORT}/user/login")
+        const response = await axios.post(`http://localhost:${PORT}/user/login`);
+        console.log("Haz accedido", response.data)
+
       } catch (error) {
         console.error("Error al redirigir al hacer login", error);
         message("Algo ocurrió mal al intentar acceder a tu perfil")
