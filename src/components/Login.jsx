@@ -20,7 +20,7 @@ function Login({ setUser, listUsers }) {
       message("Error: No hay usuarios registrados.");
       //CONEXION NODE URL LOGIN
       try {
-        const response = await axios.post(`http://localhost:${PORT}/user/login`);
+        const response = await axios.post('http://localhost:5001/user/login');
         console.log("Haz accedido", response.data)
 
       } catch (error) {

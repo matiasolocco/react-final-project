@@ -28,7 +28,6 @@ export const FoodProvider = ({ children }) => {
   };
 
   const deleteFood = (foodId) => {
-    console.log(`Food ID to delete: ${foodId}`); // Agrega este log para depuración
     axios.delete(`http://localhost:5001/food/delete/${foodId}`)
       .then(() => {
         setFoods(prevFoods => prevFoods.filter(food => food._id !== foodId));

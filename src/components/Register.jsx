@@ -12,7 +12,7 @@ function Register() {
     ev.preventDefault();
     try {
       //CONEXION NODE URL REGISTER
-      const response = await axios.post(`http://localhost:${PORT}/user/login`, { email, password });
+      const response = await axios.post('http://localhost:5001/user/register', { email, password });
       
       console.log("Usuario registrado:", response.data);
       message("Registro exitoso. Ahora puedes iniciar sesión.");
